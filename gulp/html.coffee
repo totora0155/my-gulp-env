@@ -12,7 +12,7 @@ $.task 'html', ->
   $.src tasks.html
   .pipe $p.template JSON.parse fs.readFileSync './config.json', 'utf8'
   .pipe $p.inject(
-    series(cssStream, jsStream)
+    series cssStream, jsStream
     relative: true
   )
   .pipe $.dest '.'
