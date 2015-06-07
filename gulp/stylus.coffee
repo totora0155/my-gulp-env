@@ -7,7 +7,7 @@ rupture = require 'rupture'
 jeet = require 'jeet'
 
 tasks = JSON.parse fs.readFileSync('./tasks.json', 'utf8')
-$.task 'stylus', ->
+if tasks.stylus? then $.task 'stylus', ->
   $.src tasks.stylus
   .pipe $p.plumber {errorHandler: $p.notify.onError '<%= error.message %>'}
   .pipe $p.cached 'Cached .styl'
