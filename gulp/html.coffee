@@ -5,8 +5,8 @@ series = require 'stream-series'
 browserSync = require('browser-sync').create()
 
 tasks = JSON.parse fs.readFileSync './tasks.json', 'utf8'
-cssStream = $.src ['style/**/*.css'], {read: false}
-jsStream = $.src ['script/lib/**/*.js', 'script/**/*.js'], {read: false}
+cssStream = $.src ['app/style/**/*.css'], {read: false}
+jsStream = $.src ['app/script/lib/**/*.js', 'app/script/**/*.js'], {read: false}
 
 $.task 'html', ->
   $.src tasks.html
