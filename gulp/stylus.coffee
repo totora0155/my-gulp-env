@@ -18,5 +18,5 @@ $.task 'stylus', ->
     sourcemap: {sourceRoot: '.'}
   .pipe $p.sourcemaps.write '.'
   .pipe $p.size {showFile: true, title: '.styl'}
-  .pipe $.dest 'style'
+  .pipe $.dest 'app/style'
   .pipe browserSync.stream()
