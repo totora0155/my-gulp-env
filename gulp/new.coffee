@@ -7,7 +7,7 @@ $.task 'new', ->
   path = argv.p or argv.path
   unless path and typeof path is 'string'
     return console.error '--path (-p) is undefined, or isnt String'
-  [type, name] = path.match(/(.+)\/(.+)/)[1..2]
+  type = path.match(/(.+)\/(.+)/)[1]
   try
     isExist = fs.openSync "../../#{path}", 'r'
     return console.error 'Already exists path' if isExist
