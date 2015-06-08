@@ -6,7 +6,7 @@ tasks = JSON.parse fs.readFileSync './tasks.json', 'utf8'
 if tasks.coffee? then $.task 'coffee', ->
   $.src tasks.coffee
   .pipe $p.plumber()
-  .pipe $p.cached 'Cache Coffee'
+  .pipe $p.cached 'Cache *.coffee'
   .pipe $p.sourcemaps.init()
   .pipe $p.coffeelint()
   .pipe $p.coffeelint.reporter()

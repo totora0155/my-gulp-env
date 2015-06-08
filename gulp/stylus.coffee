@@ -10,7 +10,7 @@ tasks = JSON.parse fs.readFileSync('./tasks.json', 'utf8')
 if tasks.stylus? then $.task 'stylus', ->
   $.src tasks.stylus
   .pipe $p.plumber {errorHandler: $p.notify.onError '<%= error.message %>'}
-  .pipe $p.cached 'Cached .styl'
+  .pipe $p.cached 'Cached *.styl'
   .pipe $p.sourcemaps.init()
   .pipe $p.stylus
     use: [axis(), rupture(), jeet()]
