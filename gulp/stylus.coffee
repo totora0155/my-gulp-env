@@ -1,7 +1,7 @@
 fs = require 'fs'
 $ = require 'gulp'
 $p = require('gulp-load-plugins')(config: '../../package.json')
-browserSync = require('browser-sync').create()
+browserSync = require('browser-sync').get 'gulp'
 axis = require 'axis'
 rupture = require 'rupture'
 jeet = require 'jeet'

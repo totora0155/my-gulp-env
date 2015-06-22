@@ -2,7 +2,7 @@ fs = require 'fs'
 $ = require 'gulp'
 $p = require('gulp-load-plugins')(config: '../../package.json')
 series = require 'stream-series'
-browserSync = require('browser-sync').create()
+browserSync = require('browser-sync').get 'gulp'
 
 tasks = JSON.parse fs.readFileSync './tasks.json', 'utf8'
 cssStream = $.src ['app/style/**/*.css'], {read: false}

@@ -1,7 +1,7 @@
 fs = require 'fs'
 $ = require 'gulp'
 $p = require('gulp-load-plugins')(config: '../../package.json')
-browserSync = require('browser-sync').create()
+browserSync = require('browser-sync').create 'gulp'
 argv = require('minimist')(process.argv.slice(2))
 
 tasks = JSON.parse fs.readFileSync('./tasks.json', 'utf8')
