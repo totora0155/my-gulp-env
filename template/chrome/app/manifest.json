@@ -1,0 +1,65 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "version": "1.0.0.0",
+  "default_locale": "ja",
+
+  //"content_security_policy":"script-src 'self' 'unsafe-eval'; object-src 'self'",*/
+  "permissions": [
+    //"contextMenus",*/
+    //"downloads",*/
+    //"storage",*/
+    //"tabs",*/
+    //"http://*/",*/
+    //"https://*/"*/
+  ],
+
+  "icons": {
+    "16": "icon/icon_16.png",
+    "48": "icon/icon_48.png",
+    "128": "icon/icon_128.png"
+  },
+
+  //"omnibox": { "keyword": "ll" },*/
+
+  //"options_page": "options.html",*/
+  //"options_ui": {*/
+    //"page": "options.html",*/
+    //"chrome_style": true*/
+    //"open_in_tab": true*/
+  //},*/
+  //"chrome_url_overrides": {*/
+    //"newtab": "newtab.html"*/
+  //},*/
+
+  //"web_accessible_resources": [*/
+    //"style/*.css",*/
+    //"script/*.js"*/
+  //],*/
+  //"page_action": {*/
+    //"default_icon": {"38": "icon/icon_38.png"},*/
+    //"default_title": "nowshelfdownload"*/
+  //},*/
+  //"browser_action": {*/
+    //"default_icon": {"38": "icon/icon_38.png"},*/
+    //"default_title": "ll 設定ページへ"*/
+  //},*/
+
+  //"content_scripts": [*/
+    //{*/
+      //"matches": ["http://*/*", "http://*/*"],*/
+      //"css": ["style/contentscripts.css"],*/
+      //"js": ["script/contentscripts.js"]*/
+    //}*/
+  //],*/
+
+  //"app": {*/
+    //"launch": {"local_path": "app.html"}*/
+    //"background": {"scripts": ["script/background.js"]}*/
+  //},*/
+  "background": {
+    "persistent": false,
+    "scripts": ["script/background.js"]
+  }
+}
