@@ -18,6 +18,6 @@ $.task 'default', ->
     opts.server = if argv.server? then argv.server else 'app'
 
   browserSync.init opts
-  for task, src of tasks
-    if /^(?:coffee)$/.test task then $.watch src, [task, browserSync.reload]
-    else $.watch src, [task]
+  $.watch src, [task] for task, src of tasks
+    # if /^(?:coffee)$/.test task then $.watch src, [task]
+    # else $.watch src, [task]
