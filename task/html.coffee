@@ -1,19 +1,22 @@
 fs = require 'fs'
 $ = require 'gulp'
 $p = require('gulp-load-plugins')(config: '../../package.json')
-series = require 'stream-series'
+merge = require 'merge-stream'
 browserSync = require('browser-sync').get 'gulp'
 
 tasks = JSON.parse fs.readFileSync './tasks.json', 'utf8'
-cssStream = $.src ['app/style/**/*.css'], {read: false}
-jsStream = $.src ['app/script/lib/**/*.js', 'app/script/**/*.js'], {read: false}
-
 if tasks.html? then $.task 'html', ->
+  cssStream = $.src ['app/style/**/*.css'], {read: false}
+  jsStream = $.src ['app/script/lib/**/*.js', 'app/script/**/*.js'], {read: false}
+
   $.src tasks.html
   .pipe $p.template JSON.parse fs.readFileSync './config.json', 'utf8'
   .pipe $p.inject(
-    series cssStream, jsStream
-    relative: true
+    merge cssStream, jsStream
+    {
+      relative: true
+      ignorePath: '..'
+    }
   )
-  .pipe $.dest '.'
+  .pipe $.dest 'app'
   .pipe browserSync.stream()
